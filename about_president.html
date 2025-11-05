@@ -1,150 +1,552 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="about_president.css">
-  <title>About Us</title>
+  <title>About Us - Principal</title>
   
   <style>
-   
-      
-      
-      .nav-bar {
-        background-color: white; 
-        height: 1.5cm;
-        display: flex;
-        justify-content: flex-end; 
-        align-items: center;
-        padding-right: 20px; 
-        position: relative; 
-        z-index: 1000; 
-      }
-      
-  
-      .menu-button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 40px;
-        z-index: 999; 
-        background-color: #30305b;
-        border: 2px solid white;
-        width: 70px;
-        height: 40px;
-        border-radius: 5px; 
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    
-    .social-media-container {
-      width: 3rem;
-      height: 16rem;
-      border-top-right-radius: 1rem;
-      border-bottom-right-radius: 1rem;
-      background-color: #262727; 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+      background: #f8f9fa;
+    }
+
+    /* Top Bar with Gradient */
+    .top-bar {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .top-bar::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-20px) translateX(20px); }
+    }
+
+    .logo {
+      margin-right: 2rem;
+      animation: slideInLeft 0.8s ease;
+    }
+
+    .logo img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    }
+
+    .college-info {
+      flex: 1;
+      color: white;
+      animation: slideInRight 0.8s ease;
+    }
+
+    .college-info h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .college-info p {
+      font-size: 1rem;
+      opacity: 0.95;
+      line-height: 1.6;
+    }
+
+    /* Modern Navigation */
+    .menu-bar {
+      background: white;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: slideDown 0.5s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    .menu-bar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu-bar li {
+      position: relative;
+    }
+
+    .menu-bar li > a {
+      display: block;
+      padding: 1.2rem 1.5rem;
+      color: #2c3e50;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .menu-bar li > a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #2a5298, #1e3c72);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .menu-bar li > a:hover::after {
+      width: 80%;
+    }
+
+    .menu-bar li > a:hover {
+      color: #2a5298;
+    }
+
+    /* Dropdown Menu */
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 220px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .menu-bar li:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu ul {
+      flex-direction: column;
+      padding: 0.5rem 0;
+    }
+
+    .dropdown-menu li {
+      list-style: none;
+    }
+
+    .dropdown-menu li a {
+      padding: 0.8rem 1.5rem;
+      color: #2c3e50;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      display: block;
+      text-decoration: none;
+    }
+
+    .dropdown-menu li a:hover {
+      background: linear-gradient(90deg, #2a5298, #1e3c72);
+      color: white;
+      padding-left: 2rem;
+    }
+
+    /* Image Container */
+    .image-container {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    /* Principal Section */
+    .principle-section {
+      background: white;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      margin-bottom: 3rem;
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      transition: all 0.3s ease;
+      animation: fadeInUp 1s ease;
+    }
+
+    .principle-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+    }
+
+    .principle-photo {
+      flex-shrink: 0;
+    }
+
+    .principle-photo img {
+      width: 250px;
+      height: 250px;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+
+    .principle-photo img:hover {
+      transform: scale(1.05);
+    }
+
+    .principle-info h2 {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .principle-info h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #2a5298, #1e3c72);
+      border-radius: 2px;
+    }
+
+    .principle-info p {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #555;
+      text-align: justify;
+      margin-bottom: 1rem;
+    }
+
+    /* Mission & Vision Section */
+    .mission-vision {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      margin-bottom: 3rem;
+      color: white;
+      transition: all 0.3s ease;
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+
+    .mission-vision:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+    }
+
+    .mission-vision h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .mission-vision h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: white;
+      border-radius: 2px;
+    }
+
+    .mission-vision p {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      text-align: justify;
+      margin-bottom: 1rem;
+      opacity: 0.95;
+    }
+
+    /* History Section */
+    .history {
+      background: white;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      margin-bottom: 3rem;
+      transition: all 0.3s ease;
+      animation: fadeInUp 1s ease 0.4s both;
+    }
+
+    .history:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+    }
+
+    .history h2 {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .history h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #2a5298, #1e3c72);
+      border-radius: 2px;
+    }
+
+    .history p {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #555;
+      text-align: justify;
+      margin-bottom: 1rem;
+    }
+
+    /* Social Media Sidebar */
+    .social-sidebar {
       position: fixed;
+      left: 0;
       top: 50%;
       transform: translateY(-50%);
-      left: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      z-index: 1000;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+      background: rgba(44,62,80,0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0.5rem;
+      border-radius: 0 15px 15px 0;
+      z-index: 999;
+      box-shadow: 3px 0 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
     }
 
-    
-    @keyframes expand {
-      0% {
-        width: 3rem;
-      }
-      100% {
-        width: 4rem;
-      }
+    .social-sidebar:hover {
+      padding-left: 0.8rem;
+      padding-right: 0.8rem;
     }
 
-    .social-media-container:hover {
-      animation: expand 0.3s ease forwards; 
-    }
-
-    
-    .social-media h2 {
-      font-size: 1rem;
-      margin: 0;
-      margin-top: 1rem; 
-      color: #fff; 
-    }
-
-    
-    .social-media ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 1rem; 
-    }
-
-    
-    .social-media li {
-      margin-bottom: 1rem; 
-      transition: transform 0.3s ease; 
-    }
-
-    
-    .social-media li:hover {
-      transform: scale(1.1); 
-    }
-
-    
-    .social-media li a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 2.5rem;
-      height: 2.5rem;
+    .social-sidebar a {
+      display: block;
+      width: 45px;
+      height: 45px;
+      margin: 0.8rem 0;
+      background: white;
       border-radius: 50%;
-      background-color: white;
-      font-size: 1.2rem;
-      color: #566573;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
       text-decoration: none;
-      transition: background-color 0.3s ease; 
-      animation: rotateIcon 1s infinite alternate; 
     }
 
-    
-    .social-media li a:hover {
-      background-color: #EDBB99; 
+    .social-sidebar a:hover {
+      transform: scale(1.2) rotate(360deg);
+      box-shadow: 0 5px 15px rgba(255,255,255,0.3);
     }
 
-    
-    .social-media li a img {
-      width: 60%; 
-      height: auto; 
+    .social-sidebar a img {
+      width: 60%;
+      height: auto;
     }
 
-    
-    @keyframes rotateIcon {
-      0% {
-        transform: rotate(0deg);
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 3rem 2rem 1rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-info h2,
+    .quick-links h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .contact-info h2::after,
+    .quick-links h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: white;
+    }
+
+    .contact-info ul,
+    .quick-links ul {
+      list-style: none;
+    }
+
+    .contact-info li,
+    .quick-links li {
+      margin-bottom: 0.8rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-info li:hover,
+    .quick-links li:hover {
+      padding-left: 10px;
+    }
+
+    .contact-info a,
+    .quick-links a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .contact-info a:hover,
+    .quick-links a:hover {
+      color: white;
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+
+    .bottom-line {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      opacity: 0.8;
+    }
+
+    /* Animations */
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
       }
-      100% {
-        transform: rotate(360deg);
+      to {
+        opacity: 1;
+        transform: translateX(0);
       }
     }
 
-    
-  
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .top-bar {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      .logo {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      .college-info h1 {
+        font-size: 1.5rem;
+      }
+
+      .college-info p {
+        font-size: 0.9rem;
+      }
+
+      .menu-bar ul {
+        flex-direction: column;
+      }
+
+      .principle-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .principle-info h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .container {
+        padding: 0 1rem;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Top bar -->
   <div class="top-bar">
-
     <div class="logo">
-      <img src="logo.png" alt="College Logo">
+      <img src="logo.png" alt="College Logo" onerror="this.style.display='none'">
     </div>
     <div class="college-info">
       <h1>Vivekananda Lions Pre University College</h1>
@@ -155,11 +557,8 @@
   <!-- Nav bar -->
   <nav>
     <div class="menu-bar">
-      
       <ul>
-        <li><a href="web2.html">Home</a></li>
-
-
+        <li><a href="index.html">Home</a></li>
         <li><a href="">About<i class="fas fa-caret-down"></i></a>
           <div class="dropdown-menu">
             <ul>
@@ -171,13 +570,7 @@
             </ul>
           </div>
         </li>
-  
-  
-          <li><a href="admissions.html">Admissions<i class="fas fa-caret-down"></i></a>
-  
-        </li>
-  
-  
+        <li><a href="admissions.html">Admissions<i class="fas fa-caret-down"></i></a></li>
         <li><a href="">Courses<i class="fas fa-caret-down"></i></a>
           <div class="dropdown-menu">
             <ul>
@@ -186,9 +579,7 @@
             </ul>
           </div>
         </li>
-  
-  
-          <li><a >Facilities <i class="fas fa-caret-down"></i></a>
+        <li><a>Facilities <i class="fas fa-caret-down"></i></a>
           <div class="dropdown-menu">
             <ul>
               <li><a href="facilities_library.html">LIBRARIES</a></li>
@@ -198,62 +589,54 @@
             </ul>
           </div>
         </li>
-  
-
-
-
-
-
-      <li><a href="">Student corner<i class="fas fa-caret-down"></i></a>
-        <div class="dropdown-menu">
-          <ul>
-            <li><a href="stco_scholar.html">SCHOLORSHIP</a></li>
-            <li><a href="stco_coe.html">CALENDAR OF EVENTS</a></li>
-            <li><a href="stco_result.html">RESULTS</a></li>
-            <li><a href="stco_timetable.html">TIME TABLE</a></li>        
-          </ul>
-        </div>
-      </li>
-
-      <li><a class="faculties" href="">Faculties<i class="fas fa-caret-down"></i></a>
-        <div class="dropdown-menu">
+        <li><a href="">Student corner<i class="fas fa-caret-down"></i></a>
+          <div class="dropdown-menu">
+            <ul>
+              <li><a href="stco_scholar.html">SCHOLORSHIP</a></li>
+              <li><a href="stco_coe.html">CALENDAR OF EVENTS</a></li>
+              <li><a href="stco_result.html">RESULTS</a></li>
+              <li><a href="stco_timetable.html">TIME TABLE</a></li>        
+            </ul>
+          </div>
+        </li>
+        <li><a class="faculties" href="">Faculties<i class="fas fa-caret-down"></i></a>
+          <div class="dropdown-menu">
             <ul>
               <li><a href="SCIENCE_faculties.html">SCIENCE</a></li>
               <li><a href="COMMERCE_faculties.html">COMMERCE</a></li>
               <li><a href="KANNADA_faculties.html">KANNADA</a></li>
               <li><a href="ENGLISH_faculties.html">ENGLISH</a></li>
-           
             </ul>
           </div>
-    </li>
-
+        </li>
         <li><a href="news.html">News and Events</a></li>
-
         <li><a href="gallery.html">Gallery</a></li>
-
         <li><a href="contact.html">Contact us<i class="fas fa-caret-down"></i></a>
-        <div class="dropdown-menu">
-          <ul>
-            <li><a href="">CALL</a></li>
-            <li><a href="">WHATSAPP</a></li>
-            <li><a href="">INSTAGRAM</a></li>
-            <li><a href="">FACEBOOK</a></li>
-            <li><a href="">OTHER</a></li>
-          </ul>
-        </div>
-  </li>
-</nav>
-  </div>
+          <div class="dropdown-menu">
+            <ul>
+              <li><a href="">CALL</a></li>
+              <li><a href="">WHATSAPP</a></li>
+              <li><a href="">INSTAGRAM</a></li>
+              <li><a href="">FACEBOOK</a></li>
+              <li><a href="">OTHER</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
   <div class="image-container">
-    <img src="your.png" alt="Your Image" width=100% height=400px>
+    <img src="your.png" alt="Your Image" onerror="this.style.display='none'">
   </div>
+
   <div class="container">
-    <section class="president-section">
-        <div class="president-photo">
-            <img src="whatsapp.png" alt="Principal">
+    <section class="principle-section">
+        <div class="principle-photo">
+            <img src="whatsapp.png" alt="Principal" onerror="this.style.display='none'">
         </div>
-        <div class="president-info">
-            <h2>About the President</h2>
+        <div class="principle-info">
+            <h2>About the Principle</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac justo id velit eleifend ultricies ut vitae nibh. Duis tincidunt mauris et suscipit dictum.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac justo id velit eleifend ultricies ut vitae nibh. Duis tincidunt mauris et suscipit dictum.</p>
         </div>
@@ -270,42 +653,33 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac justo id velit eleifend ultricies ut vitae nibh. Duis tincidunt mauris et suscipit dictum.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac justo id velit eleifend ultricies ut vitae nibh. Duis tincidunt mauris et suscipit dictum.</p>
     </section>
-</div>
- 
+  </div>
+
+  <!-- Social Media Sidebar -->
+  <div class="social-sidebar">
+    <a href=""><img src="instagram.png" alt="Instagram" onerror="this.innerHTML='📷'"></a>
+    <a href="#"><img src="facebook.png" alt="Facebook" onerror="this.innerHTML='👍'"></a>
+    <a href="#"><img src="whatsapp.png" alt="WhatsApp" onerror="this.innerHTML='💬'"></a>
+    <a href="#"><img src="twitter.png" alt="Twitter" onerror="this.innerHTML='🐦'"></a>
+  </div>
 
   <!-- Footer -->
-   
   <footer>
     <div class="footer-container">
       <div class="contact-info">
         <h2>Contact Information</h2>
-      
-
-  <ul>
-    <li><strong>Address:</strong> Vivekananda Lions Pre University College, CN Road, Holehonnuru, Chitradurga road, Bhadravathi taluk, Shivamogga District, Karnataka, 577227</li>
-    <li><strong>Phone:</strong> <a href="tel:+91-your-phone-number">+91-****</a></li>
-    <li><strong>Email:</strong> <a href="mailto:vlipucedu@gmail.com">vlipucedu@gmail.com</a></li>
-  </ul>
-        
-      </div>
-      <div class="social-media-container">
-        <div class="social-media">
-
-          <ul>
-            <li><a href=""><img src="instagram.png" alt="Instagram"></a></li>
-            <li><a href="#"><img src="facebook.png" alt="Facebook"></a></li>
-            <li><a href="#"><img src="whatsapp.png" alt="WhatsApp"></a></li>
-            <li><a href="#"><img src="twitter.png" alt="Twitter"></a></li>
-          </ul>
-        </div>
+        <ul>
+          <li><strong>Address:</strong> Vivekananda Lions Pre University College, CN Road, Holehonnuru, Chitradurga road, Bhadravathi taluk, Shivamogga District, Karnataka, 577227</li>
+          <li><strong>Phone:</strong> <a href="tel:+91-your-phone-number">+91-****</a></li>
+          <li><strong>Email:</strong> <a href="mailto:vlipucedu@gmail.com">vlipucedu@gmail.com</a></li>
+        </ul>
       </div>
       <div class="quick-links">
         <h2>Quick Links</h2>
         <ul>
           <li><a href="web2.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
           <li><a href="admissions.html">Admissions</a></li>
-          <li><a href="#courses-section">Courses</a></li>
+          <li><a href="courses_science.html">Courses</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -314,34 +688,6 @@
       <p>&copy; 2024 Vivekananda Lions Pre University College. All rights reserved.</p>
     </div>
   </footer>
-    <div class="backdrop" id="backdrop"></div>
-
-  <!-- JavaScript for menu button -->
-  <script>
-    function toggleMenu() {
-      var menu = document.getElementById("navMenu");
-      var backdrop = document.getElementById("backdrop");
-      var body = document.body;
-      
-      // Toggle 'change' class on the menu button
-      document.querySelector(".container").classList.toggle("change");
-      
-      // Toggle 'show' class on the menu
-      menu.classList.toggle("show");
-      
-      // Toggle backdrop visibility
-      backdrop.style.display = menu.classList.contains("show") ? "block" : "none";
-      
-      // Toggle 'menu-open' class on the body
-      body.classList.toggle("menu-open");
-      
-      // Prevent scrolling on the main page when the menu is open
-      if (body.classList.contains("menu-open")) {
-        body.style.overflow = "hidden";
-      } else {
-        body.style.overflow = "";
-      }
-    }
-  </script>
 </body>
 </html>
+
