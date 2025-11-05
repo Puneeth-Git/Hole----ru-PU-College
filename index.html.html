@@ -141,7 +141,7 @@
       top: 100%;
       left: 0;
       background: white;
-      min-width: 200px;
+      min-width: 220px;
       box-shadow: 0 8px 25px rgba(0,0,0,0.15);
       opacity: 0;
       visibility: hidden;
@@ -162,11 +162,17 @@
       padding: 0.5rem 0;
     }
 
+    .dropdown-menu li {
+      list-style: none;
+    }
+
     .dropdown-menu li a {
       padding: 0.8rem 1.5rem;
       color: #2c3e50;
       font-size: 0.9rem;
       transition: all 0.3s ease;
+      display: block;
+      text-decoration: none;
     }
 
     .dropdown-menu li a:hover {
@@ -468,14 +474,17 @@
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
-      color: #2c3e50;
       text-decoration: none;
-      font-size: 1.3rem;
     }
 
     .social-sidebar a:hover {
       transform: scale(1.2) rotate(360deg);
       box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+    }
+
+    .social-sidebar a img {
+      width: 60%;
+      height: auto;
     }
 
     /* Footer */
@@ -494,14 +503,16 @@
       margin-bottom: 2rem;
     }
 
-    .footer-section h2 {
+    .contact-info h2,
+    .quick-links h2 {
       font-size: 1.5rem;
       margin-bottom: 1.5rem;
       position: relative;
       padding-bottom: 0.5rem;
     }
 
-    .footer-section h2::after {
+    .contact-info h2::after,
+    .quick-links h2::after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -511,26 +522,31 @@
       background: white;
     }
 
-    .footer-section ul {
+    .contact-info ul,
+    .quick-links ul {
       list-style: none;
     }
 
-    .footer-section li {
+    .contact-info li,
+    .quick-links li {
       margin-bottom: 0.8rem;
       transition: all 0.3s ease;
     }
 
-    .footer-section li:hover {
+    .contact-info li:hover,
+    .quick-links li:hover {
       padding-left: 10px;
     }
 
-    .footer-section a {
+    .contact-info a,
+    .quick-links a {
       color: rgba(255,255,255,0.9);
       text-decoration: none;
       transition: all 0.3s ease;
     }
 
-    .footer-section a:hover {
+    .contact-info a:hover,
+    .quick-links a:hover {
       color: white;
       text-shadow: 0 0 10px rgba(255,255,255,0.5);
     }
@@ -638,70 +654,71 @@
     <ul>
       <li><a href="web2.html">Home</a></li>
       <li>
-        <a href="#">About ▾</a>
+        <a href="">About <i class="fas fa-caret-down"></i></a>
         <div class="dropdown-menu">
           <ul>
-            <li><a href="about_principle.html">Principal</a></li>
-            <li><a href="about_president.html">President</a></li>
-            <li><a href="about_secretary.html">Secretary</a></li>
-            <li><a href="about_treasurer.html">Treasurer</a></li>
-            <li><a href="about_administrator.html">Administrator</a></li>
+            <li><a href="about_principle.html">PRINCIPLE</a></li>
+            <li><a href="about_president.html">PRESIDENT</a></li>
+            <li><a href="about_secretary.html">SECRETARY</a></li>
+            <li><a href="about_treasurer.html">TREASURER</a></li>
+            <li><a href="about_administrator.html">ADMINISTRATOR</a></li>
           </ul>
         </div>
       </li>
-      <li><a href="admissions.html">Admissions</a></li>
+      <li><a href="admissions.html">Admissions <i class="fas fa-caret-down"></i></a></li>
       <li>
-        <a href="#">Courses ▾</a>
+        <a href="">Courses <i class="fas fa-caret-down"></i></a>
         <div class="dropdown-menu">
           <ul>
-            <li><a href="courses_science.html">Science</a></li>
-            <li><a href="courses_commerce.html">Commerce</a></li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <a href="#">Facilities ▾</a>
-        <div class="dropdown-menu">
-          <ul>
-            <li><a href="facilities_library.html">Libraries</a></li>
-            <li><a href="facilities_hostel.html">Hostel</a></li>
-            <li><a href="facilities_transport.html">Transportation</a></li>
-            <li><a href="facilities_technology.html">Technology</a></li>
+            <li><a href="courses_science.html">SCIENCE</a></li>
+            <li><a href="courses_commerce.html">COMMERCE</a></li>
           </ul>
         </div>
       </li>
       <li>
-        <a href="#">Student Corner ▾</a>
+        <a href="">Facilities <i class="fas fa-caret-down"></i></a>
         <div class="dropdown-menu">
           <ul>
-            <li><a href="stco_scholar.html">Scholarship</a></li>
+            <li><a href="facilities_library.html">LIBRARIES</a></li>
+            <li><a href="facilities_hostel.html">HOSTEL</a></li>
+            <li><a href="facilities_transport.html">TRANSPORTATION</a></li>
+            <li><a href="facilities_technology.html">TECHNOLOGY</a></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a href="">Student corner <i class="fas fa-caret-down"></i></a>
+        <div class="dropdown-menu">
+          <ul>
+            <li><a href="stco_scholar.html">SCHOLORSHIP</a></li>
             <li><a href="stco_coe.html">C.O.E</a></li>
-            <li><a href="stco_result.html">Results</a></li>
-            <li><a href="stco_timetable.html">Time Table</a></li>
+            <li><a href="stco_result.html">RESULTS</a></li>
+            <li><a href="stco_timetable.html">TIME TABLE</a></li>
           </ul>
         </div>
       </li>
       <li>
-        <a href="#">Faculties ▾</a>
+        <a href="">Faculties <i class="fas fa-caret-down"></i></a>
         <div class="dropdown-menu">
           <ul>
-            <li><a href="SCIENCE_faculties.html">Science</a></li>
-            <li><a href="COMMERCE_faculties.html">Commerce</a></li>
-            <li><a href="KANNADA_faculties.html">Kannada</a></li>
-            <li><a href="ENGLISH_faculties.html">English</a></li>
+            <li><a href="SCIENCE_faculties.html">SCIENCE</a></li>
+            <li><a href="COMMERCE_faculties.html">COMMERCE</a></li>
+            <li><a href="KANNADA_faculties.html">KANNADA</a></li>
+            <li><a href="ENGLISH_faculties.html">ENGLISH</a></li>
           </ul>
         </div>
       </li>
-      <li><a href="news.html">News & Events</a></li>
+      <li><a href="news.html">News and Events</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li>
-        <a href="#">Contact Us ▾</a>
+        <a href="">Contact us <i class="fas fa-caret-down"></i></a>
         <div class="dropdown-menu">
           <ul>
             <li><a href="contact.html">Call</a></li>
             <li><a href="contact.html">WhatsApp</a></li>
             <li><a href="contact.html">Instagram</a></li>
             <li><a href="contact.html">Facebook</a></li>
+            <li><a href="contact.html">OTHER</a></li>
           </ul>
         </div>
       </li>
@@ -719,47 +736,65 @@
   <!-- Register Section -->
   <div class="register-section">
     <h1>Join Us Today!</h1>
-    <p>We invite students from all walks of life to join our vibrant learning community at Vivekananda Lions Pre University College. Embrace the opportunity to pursue your academic ambitions, explore your interests, and grow as an individual.</p>
+    <p>We invite students from all walks of life to join our vibrant learning community at Vivekananda Lions Pre University College. Embrace the opportunity to pursue your academic ambitions, explore your interests, and grow as an individual. Register now and embark on an exciting journey of discovery and personal growth!</p>
     <button class="register-button" onclick="openGoogleForm()">Register Now</button>
   </div>
 
   <!-- Welcome Section -->
   <div class="content-section fade-in-up">
-    <h1>Welcome to Vivekananda Lions</h1>
+    <h1>WELCOME TO LIONS---</h1>
     <div class="content-box">
-      <div class="truncated-content" id="welcome-text">
+      <div class="truncated-content" id="paragraph2">
         <p>
-          Vivekananda Lions Pre University College, nestled in the idyllic locale of Holehonnur, stands as a beacon of educational excellence, poised to usher in a new era of holistic learning and development. Our institution epitomizes a commitment to nurturing young minds, providing an unparalleled amalgamation of academic rigor, co-curricular enrichment, and comprehensive competitive exam coaching.
-        </p>
-        <p style="margin-top: 1rem;">
-          Embodying the spirit of Swami Vivekananda's philosophy, we aspire to empower students to realize their fullest potential across all facets of their journey towards knowledge and self-discovery. With a meticulously crafted curriculum, we ensure that every learner is equipped not only with academic proficiency but also with essential life skills and a keen sense of social responsibility.
-        </p>
-        <p style="margin-top: 1rem;">
-          At Vivekananda Lions, we understand that education transcends the confines of textbooks. Hence, in addition to rigorous academic training, our students benefit from a plethora of co-curricular activities designed to foster creativity, critical thinking, and leadership qualities. From competitive exam preparation encompassing KCET, JEE, NEET, NATA, to specialized upskilling programs, we offer a comprehensive array of opportunities to broaden horizons and ignite passions.
-        </p>
-        <p style="margin-top: 1rem;">
-          Moreover, recognizing the pivotal role of physical well-being in holistic development, we provide state-of-the-art sports coaching facilities, nurturing sporting talent and instilling values of discipline, teamwork, and resilience. Our commitment extends beyond the classroom, with seamless hostel accommodations ensuring a conducive environment for learning and personal growth for students from diverse backgrounds.
-        </p>
-        <p style="margin-top: 1rem;">
-          Vivekananda Lions Pre University College represents not merely an educational institution but a transformative journey, where each student is guided, inspired, and encouraged to progress towards excellence in every facet of their being. We invite parents and students alike to embark on this enriching odyssey with us, where the destination is not just academic success but the realization of one's true potential and the pursuit of a brighter tomorrow.
+          Vivekananda Lions Pre University College, nestled in the idyllic locale of 
+          Holehonnur, stands as a beacon of educational excellence, poised to usher in a 
+          new era of holistic learning and development. Our institution epitomizes a 
+          commitment to nurturing young minds, providing an unparalleled amalgamation 
+          of academic rigor, co-curricular enrichment, and comprehensive competitive 
+          exam coaching. 
+          Embodying the spirit of Swami Vivekananda's philosophy, we aspire to 
+          empower students to realize their fullest potential across all facets of their 
+          journey towards knowledge and self-discovery. With a meticulously crafted 
+          curriculum, we ensure that every learner is equipped not only with academic 
+          proficiency but also with essential life skills and a keen sense of social 
+          responsibility. 
+          At Vivekananda Lions, we understand that education transcends the confines of 
+          textbooks. Hence, in addition to rigorous academic training, our students benefit 
+          from a plethora of co-curricular activities designed to foster creativity, critical 
+          thinking, and leadership qualities. From competitive exam preparation 
+          encompassing KCET, JEE, NEET, NATA, to specialized upskilling programs, 
+          we offer a comprehensive array of opportunities to broaden horizons and ignite 
+          passions. 
+          Moreover, recognizing the pivotal role of physical well-being in holistic 
+          development, we provide state-of-the-art sports coaching facilities, nurturing 
+          sporting talent and instilling values of discipline, teamwork, and resilience. Our 
+          commitment extends beyond the classroom, with seamless hostel 
+          accommodations ensuring a conducive environment for learning and personal 
+          growth for students from diverse backgrounds. 
+          Vivekananda Lions Pre University College represents not merely an educational 
+          institution but a transformative journey, where each student is guided, inspired, 
+          and encouraged to progress towards excellence in every facet of their being. We 
+          invite parents and students alike to embark on this enriching odyssey with us, 
+          where the destination is not just academic success but the realization of one's 
+          true potential and the pursuit of a brighter tomorrow.
         </p>
       </div>
       <center>
-        <button class="read-more-button" onclick="toggleReadMore()">Read More</button>
+        <button class="read-more-button" onclick="toggleReadMore('paragraph2')">Read More</button>
       </center>
     </div>
   </div>
 
   <!-- Courses Section -->
-  <div class="courses-section">
-    <h1>Courses Offered</h1>
+  <div id="courses-section" class="courses-section">
+    <h1>COURSES OFFERED----------------</h1>
     <div class="course-cards">
       <a href="courses_science.html" class="course-card">
-        <h2>🔬 Science</h2>
+        <h2>SCIENCE</h2>
         <p>Physics, Chemistry, Mathematics, Biology - Preparing students for engineering and medical careers</p>
       </a>
       <a href="courses_commerce.html" class="course-card">
-        <h2>💼 Commerce</h2>
+        <h2>COMMERCE</h2>
         <p>Accountancy, Business Studies, Economics - Building future business leaders and entrepreneurs</p>
       </a>
     </div>
@@ -767,42 +802,30 @@
 
   <!-- Social Media Sidebar -->
   <div class="social-sidebar">
-    <a href="#" title="Instagram">📷</a>
-    <a href="#" title="Facebook">👍</a>
-    <a href="#" title="WhatsApp">💬</a>
-    <a href="#" title="Twitter">🐦</a>
+    <a href=""><img src="instagram.png" alt="Instagram" onerror="this.innerHTML='📷'"></a>
+    <a href="#"><img src="facebook.png" alt="Facebook" onerror="this.innerHTML='👍'"></a>
+    <a href="#"><img src="whatsapp.png" alt="WhatsApp" onerror="this.innerHTML='💬'"></a>
+    <a href="#"><img src="twitter.png" alt="Twitter" onerror="this.innerHTML='🐦'"></a>
   </div>
 
   <!-- Footer -->
   <footer>
     <div class="footer-container">
-      <div class="footer-section">
+      <div class="contact-info">
         <h2>Contact Information</h2>
         <ul>
-          <li>📍 CN Road, Holehonnuru, Chitradurga road</li>
-          <li>Bhadravathi taluk, Shivamogga District</li>
-          <li>Karnataka, 577227</li>
-          <li>📧 vlipucedu@gmail.com</li>
-          <li>📞 +91-****</li>
+          <li><strong>Address:</strong> Vivekananda Lions Pre University College, CN Road, Holehonnuru, Chitradurga road, Bhadravathi taluk, Shivamogga District, Karnataka, 577227</li>
+          <li><strong>Phone:</strong> <a href="tel:+91-your-phone-number">+91-****</a></li>
+          <li><strong>Email:</strong> <a href="mailto:vlipucedu@gmail.com">vlipucedu@gmail.com</a></li>
         </ul>
       </div>
-      <div class="footer-section">
+      <div class="quick-links">
         <h2>Quick Links</h2>
         <ul>
           <li><a href="web2.html">Home</a></li>
           <li><a href="admissions.html">Admissions</a></li>
-          <li><a href="courses_science.html">Courses</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="#courses-section">Courses</a></li>
           <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h2>Important Links</h2>
-        <ul>
-          <li><a href="stco_result.html">Results</a></li>
-          <li><a href="stco_timetable.html">Time Table</a></li>
-          <li><a href="stco_scholar.html">Scholarships</a></li>
-          <li><a href="news.html">News & Events</a></li>
         </ul>
       </div>
     </div>
@@ -812,16 +835,16 @@
   </footer>
 
   <script>
-    function toggleReadMore() {
-      const content = document.getElementById('welcome-text');
-      const button = event.target;
-      
-      if (content.classList.contains('expanded')) {
-        content.classList.remove('expanded');
+    function toggleReadMore(paragraphId) {
+      var paragraph = document.getElementById(paragraphId);
+      var button = event.target;
+
+      if (paragraph.classList.contains('expanded')) {
+        paragraph.classList.remove('expanded');
         button.textContent = 'Read More';
-        content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        paragraph.parentElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
-        content.classList.add('expanded');
+        paragraph.classList.add('expanded');
         button.textContent = 'Read Less';
       }
     }
